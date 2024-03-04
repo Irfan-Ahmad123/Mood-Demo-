@@ -26,7 +26,7 @@ class LogInVC: UIViewController {
     @IBAction func signInBtnTapped(_ sender: Any) {
         signIN()
     }
-    
+//    you should know what to do in git and git desktop 
     @IBAction func signUpBtnTapped(_ sender: Any) {
         performSegue(withIdentifier: "toSignUp", sender: nil)
     }
