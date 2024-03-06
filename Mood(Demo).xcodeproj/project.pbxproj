@@ -26,6 +26,14 @@
 		8BED23C12B8F620800FBDF10 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BED23BF2B8F620800FBDF10 /* DiscoverCell.xib */; };
 		8BED23C62B8F6E6D00FBDF10 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED23C42B8F6E6D00FBDF10 /* FriendsCell.swift */; };
 		8BED23C72B8F6E6D00FBDF10 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BED23C52B8F6E6D00FBDF10 /* FriendsCell.xib */; };
+		BF3A2E462B987B5D00FA8113 /* Following.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3A2E452B987B5D00FA8113 /* Following.xib */; };
+		BF3A2E482B987B8100FA8113 /* Following-Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A2E472B987B8100FA8113 /* Following-Feed.swift */; };
+		BF3A2E4B2B987CF200FA8113 /* FollowingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A2E492B987CF200FA8113 /* FollowingCollectionCell.swift */; };
+		BF3A2E4C2B987CF200FA8113 /* FollowingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3A2E4A2B987CF200FA8113 /* FollowingCollectionCell.xib */; };
+		BFA362352B98639A0058355F /* Popular.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA362342B98639A0058355F /* Popular.xib */; };
+		BFA362372B9863C10058355F /* Popular-Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA362362B9863C10058355F /* Popular-Feed.swift */; };
+		BFA3623A2B9870200058355F /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA362382B9870200058355F /* PopularCell.swift */; };
+		BFA3623B2B9870200058355F /* PopularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA362392B9870200058355F /* PopularCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,14 @@
 		8BED23BF2B8F620800FBDF10 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		8BED23C42B8F6E6D00FBDF10 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		8BED23C52B8F6E6D00FBDF10 /* FriendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsCell.xib; sourceTree = "<group>"; };
+		BF3A2E452B987B5D00FA8113 /* Following.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Following.xib; sourceTree = "<group>"; };
+		BF3A2E472B987B8100FA8113 /* Following-Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Following-Feed.swift"; sourceTree = "<group>"; };
+		BF3A2E492B987CF200FA8113 /* FollowingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingCollectionCell.swift; sourceTree = "<group>"; };
+		BF3A2E4A2B987CF200FA8113 /* FollowingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowingCollectionCell.xib; sourceTree = "<group>"; };
+		BFA362342B98639A0058355F /* Popular.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Popular.xib; sourceTree = "<group>"; };
+		BFA362362B9863C10058355F /* Popular-Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Popular-Feed.swift"; sourceTree = "<group>"; };
+		BFA362382B9870200058355F /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
+		BFA362392B9870200058355F /* PopularCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +144,10 @@
 				8B7412E72B8F29CA007DC4D3 /* Discover.xib */,
 				8B7412F02B8F2A9A007DC4D3 /* Friends-Feed.swift */,
 				8B7412EA2B8F29F1007DC4D3 /* Friends.xib */,
+				BFA362362B9863C10058355F /* Popular-Feed.swift */,
+				BFA362342B98639A0058355F /* Popular.xib */,
+				BF3A2E472B987B8100FA8113 /* Following-Feed.swift */,
+				BF3A2E452B987B5D00FA8113 /* Following.xib */,
 				8BC3FBE82B8F4AA8009D524A /* Tabel View Cells */,
 				8BC3FBEC2B8F4FA2009D524A /* Data Sources */,
 			);
@@ -141,6 +161,10 @@
 				8BED23BF2B8F620800FBDF10 /* DiscoverCell.xib */,
 				8BED23C42B8F6E6D00FBDF10 /* FriendsCell.swift */,
 				8BED23C52B8F6E6D00FBDF10 /* FriendsCell.xib */,
+				BFA362382B9870200058355F /* PopularCell.swift */,
+				BFA362392B9870200058355F /* PopularCell.xib */,
+				BF3A2E492B987CF200FA8113 /* FollowingCollectionCell.swift */,
+				BF3A2E4A2B987CF200FA8113 /* FollowingCollectionCell.xib */,
 			);
 			path = "Tabel View Cells";
 			sourceTree = "<group>";
@@ -211,13 +235,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA3623B2B9870200058355F /* PopularCell.xib in Resources */,
+				BF3A2E4C2B987CF200FA8113 /* FollowingCollectionCell.xib in Resources */,
 				8BED23C12B8F620800FBDF10 /* DiscoverCell.xib in Resources */,
 				8BED23C72B8F6E6D00FBDF10 /* FriendsCell.xib in Resources */,
+				BF3A2E462B987B5D00FA8113 /* Following.xib in Resources */,
 				8B7412EB2B8F29F1007DC4D3 /* Friends.xib in Resources */,
 				8B7412E82B8F29CA007DC4D3 /* Discover.xib in Resources */,
 				8B7412C62B8F0BB4007DC4D3 /* LaunchScreen.storyboard in Resources */,
 				8B7412C32B8F0BB4007DC4D3 /* Assets.xcassets in Resources */,
 				8B7412C12B8F0BB2007DC4D3 /* Main.storyboard in Resources */,
+				BFA362352B98639A0058355F /* Popular.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,14 +260,18 @@
 				8B7412BA2B8F0BB2007DC4D3 /* AppDelegate.swift in Sources */,
 				8BC3FBEE2B8F4FB8009D524A /* DataSource-Discover.swift in Sources */,
 				8B3684252B95D87C00CF84B4 /* SignUpVC.swift in Sources */,
+				BFA362372B9863C10058355F /* Popular-Feed.swift in Sources */,
+				BF3A2E4B2B987CF200FA8113 /* FollowingCollectionCell.swift in Sources */,
 				8B7412F12B8F2A9A007DC4D3 /* Friends-Feed.swift in Sources */,
 				8BED23C02B8F620800FBDF10 /* DiscoverCell.swift in Sources */,
+				BF3A2E482B987B8100FA8113 /* Following-Feed.swift in Sources */,
 				8B3684202B95D84800CF84B4 /* LogIn.swift in Sources */,
 				8B3684282B95D89000CF84B4 /* SignUp2VC.swift in Sources */,
 				8B7412EE2B8F2A81007DC4D3 /* Discover-Feed.swift in Sources */,
 				8B7412BC2B8F0BB2007DC4D3 /* SceneDelegate.swift in Sources */,
 				8B36841A2B9592B700CF84B4 /* DataSource-Friends.swift in Sources */,
 				8BED23C62B8F6E6D00FBDF10 /* FriendsCell.swift in Sources */,
+				BFA3623A2B9870200058355F /* PopularCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

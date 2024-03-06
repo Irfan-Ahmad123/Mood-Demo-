@@ -11,6 +11,8 @@ class FeedsVC: UIViewController {
     
     @IBOutlet var discoverView: DiscoverView!
     @IBOutlet var friendView: FriendsView!
+    @IBOutlet weak var popularView: PopularView!
+    @IBOutlet weak var followingView: FollowingView!
     
     @IBOutlet var stackBtns: UIStackView!
     @IBOutlet var mainBtns: [UIButton]!
@@ -27,10 +29,10 @@ class FeedsVC: UIViewController {
         selectButton(sender, selectedView: friendView)
     }
     @IBAction func followingBtn(_ sender: UIButton) {
-        selectButton(sender, selectedView: discoverView)
+        selectButton(sender, selectedView: followingView)
     }
     @IBAction func popularBtn(_ sender: UIButton) {
-        selectButton(sender, selectedView: friendView)
+        selectButton(sender, selectedView: popularView)
     }
     
     override func viewDidLoad() {
@@ -53,7 +55,9 @@ class FeedsVC: UIViewController {
         
         discoverView.isHidden = selectedView != discoverView
         friendView.isHidden = selectedView != friendView
-        
+        popularView.isHidden = selectedView != popularView
+        followingView.isHidden = selectedView != followingView
+            
     }
     
     private func configureUI(){
