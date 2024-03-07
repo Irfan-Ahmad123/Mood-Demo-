@@ -22,6 +22,11 @@
 		8B7412EE2B8F2A81007DC4D3 /* Discover-Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7412ED2B8F2A81007DC4D3 /* Discover-Feed.swift */; };
 		8B7412F12B8F2A9A007DC4D3 /* Friends-Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7412F02B8F2A9A007DC4D3 /* Friends-Feed.swift */; };
 		8BC3FBEE2B8F4FB8009D524A /* DataSource-Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3FBED2B8F4FB8009D524A /* DataSource-Discover.swift */; };
+		8BEBCE962B99DA8100CAC4CF /* FriendsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBCE952B99DA8100CAC4CF /* FriendsFeed.swift */; };
+		8BEBCE992B99DAB500CAC4CF /* Network-Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBCE982B99DAB500CAC4CF /* Network-Management.swift */; };
+		8BEBCE9C2B99DAD500CAC4CF /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBCE9B2B99DAD500CAC4CF /* BaseUrl.swift */; };
+		8BEBCEA42B99EFC200CAC4CF /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBCEA32B99EFC200CAC4CF /* DateConverter.swift */; };
+		8BEBCEA72B99EFD900CAC4CF /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBCEA62B99EFD900CAC4CF /* Date+Ext.swift */; };
 		8BED23C02B8F620800FBDF10 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED23BE2B8F620800FBDF10 /* DiscoverCell.swift */; };
 		8BED23C12B8F620800FBDF10 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BED23BF2B8F620800FBDF10 /* DiscoverCell.xib */; };
 		8BED23C62B8F6E6D00FBDF10 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED23C42B8F6E6D00FBDF10 /* FriendsCell.swift */; };
@@ -54,6 +59,11 @@
 		8B7412ED2B8F2A81007DC4D3 /* Discover-Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discover-Feed.swift"; sourceTree = "<group>"; };
 		8B7412F02B8F2A9A007DC4D3 /* Friends-Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friends-Feed.swift"; sourceTree = "<group>"; };
 		8BC3FBED2B8F4FB8009D524A /* DataSource-Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSource-Discover.swift"; sourceTree = "<group>"; };
+		8BEBCE952B99DA8100CAC4CF /* FriendsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsFeed.swift; sourceTree = "<group>"; };
+		8BEBCE982B99DAB500CAC4CF /* Network-Management.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Network-Management.swift"; sourceTree = "<group>"; };
+		8BEBCE9B2B99DAD500CAC4CF /* BaseUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
+		8BEBCEA32B99EFC200CAC4CF /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		8BEBCEA62B99EFD900CAC4CF /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		8BED23BE2B8F620800FBDF10 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
 		8BED23BF2B8F620800FBDF10 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		8BED23C42B8F6E6D00FBDF10 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
@@ -96,6 +106,24 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		8B37048D2B99B5CD00011A58 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8BEBCE982B99DAB500CAC4CF /* Network-Management.swift */,
+				8B3704922B99B86B00011A58 /* Modals */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8B3704922B99B86B00011A58 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				8BEBCE952B99DA8100CAC4CF /* FriendsFeed.swift */,
+				8BEBCE9B2B99DAD500CAC4CF /* BaseUrl.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		8B7412AD2B8F0BB2007DC4D3 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +143,8 @@
 		8B7412B82B8F0BB2007DC4D3 /* Mood(Demo) */ = {
 			isa = PBXGroup;
 			children = (
+				8BEBCEA22B99EFA400CAC4CF /* Extensions */,
+				8B37048D2B99B5CD00011A58 /* Network */,
 				8B36841E2B95D82500CF84B4 /* Log-In */,
 				8B3684232B95D84E00CF84B4 /* SignUp */,
 				8B7412E02B8F26D0007DC4D3 /* Feed */,
@@ -176,6 +206,15 @@
 				8B3684192B9592B700CF84B4 /* DataSource-Friends.swift */,
 			);
 			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		8BEBCEA22B99EFA400CAC4CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BEBCEA32B99EFC200CAC4CF /* DateConverter.swift */,
+				8BEBCEA62B99EFD900CAC4CF /* Date+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,11 +299,15 @@
 				8B7412BA2B8F0BB2007DC4D3 /* AppDelegate.swift in Sources */,
 				8BC3FBEE2B8F4FB8009D524A /* DataSource-Discover.swift in Sources */,
 				8B3684252B95D87C00CF84B4 /* SignUpVC.swift in Sources */,
+				8BEBCE962B99DA8100CAC4CF /* FriendsFeed.swift in Sources */,
+				8BEBCE9C2B99DAD500CAC4CF /* BaseUrl.swift in Sources */,
 				BFA362372B9863C10058355F /* Popular-Feed.swift in Sources */,
 				BF3A2E4B2B987CF200FA8113 /* FollowingCollectionCell.swift in Sources */,
 				8B7412F12B8F2A9A007DC4D3 /* Friends-Feed.swift in Sources */,
 				8BED23C02B8F620800FBDF10 /* DiscoverCell.swift in Sources */,
 				BF3A2E482B987B8100FA8113 /* Following-Feed.swift in Sources */,
+				8BEBCEA42B99EFC200CAC4CF /* DateConverter.swift in Sources */,
+				8BEBCEA72B99EFD900CAC4CF /* Date+Ext.swift in Sources */,
 				8B3684202B95D84800CF84B4 /* LogIn.swift in Sources */,
 				8B3684282B95D89000CF84B4 /* SignUp2VC.swift in Sources */,
 				8B7412EE2B8F2A81007DC4D3 /* Discover-Feed.swift in Sources */,
@@ -272,6 +315,7 @@
 				8B36841A2B9592B700CF84B4 /* DataSource-Friends.swift in Sources */,
 				8BED23C62B8F6E6D00FBDF10 /* FriendsCell.swift in Sources */,
 				BFA3623A2B9870200058355F /* PopularCell.swift in Sources */,
+				8BEBCE992B99DAB500CAC4CF /* Network-Management.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

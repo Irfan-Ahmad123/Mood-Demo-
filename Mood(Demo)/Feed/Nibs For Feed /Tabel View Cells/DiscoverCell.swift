@@ -52,8 +52,6 @@ class DiscoverCell: UITableViewCell {
             images.layer.cornerRadius = images.frame.size.width/2
             images.layer.borderColor = UIColor.systemOrange.cgColor
             images.layer.borderWidth = 2
-            
-            
         }
     }
 }

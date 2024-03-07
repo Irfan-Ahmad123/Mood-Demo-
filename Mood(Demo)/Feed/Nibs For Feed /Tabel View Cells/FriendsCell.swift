@@ -37,13 +37,22 @@ class FriendsCell: UITableViewCell {
         
     }
     
-    func configureCell(with data : Data){
-        friendProfilepic.image = UIImage(named: data.profileImage)
-        friendName.text = data.userName
-        friendTime.text = data.time
-        friendEvent.text = data.event
-        friendMainImage.image = UIImage(named: data.mainimg)
-        friendLike.text = data.likes
-        friendComment.text = data.comments
+    func configureCell(with data : Friend){
+        if let address = data.activity_address{
+            self.friendEvent.text = address
+        }
+        if let name = data.activity_title{
+            self.friendName.text = name
+        }
+        if let time = data.created_at?.convertToDisplayFormat(){
+            self.friendTime.text = time
+        }
+//        friendProfilepic.image = UIImage(named: data.profileImage)
+//        friendName.text = data.userName
+//        friendTime.text = data.time
+//        friendEvent.text = data.event
+//        friendMainImage.image = UIImage(named: data.mainimg)
+//        friendLike.text = data.likes
+//        friendComment.text = data.comments
     }
 }
