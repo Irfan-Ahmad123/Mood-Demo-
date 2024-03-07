@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abdullahme" translatesAutoresizingMaskIntoConstraints="NO" id="5VT-fU-ypj">
-                                                <rect key="frame" x="7.6666666666666679" y="5" width="52.666666666666657" height="52.666666666666664"/>
+                                                <rect key="frame" x="7.5" y="5" width="53" height="53"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52.799999999999997" id="Tw5-R1-Ne0"/>
@@ -42,16 +41,15 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="292" height="22"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protest for Gun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-4a-OEK">
-                                                                <rect key="frame" x="0.0" y="0.0" width="253.33333333333334" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="253.5" height="22"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-dE-pTX">
-                                                                <rect key="frame" x="268.33333333333331" y="0.0" width="23.666666666666686" height="22"/>
+                                                                <rect key="frame" x="268.5" y="0.0" width="23.5" height="22"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="building.columns.fill" catalog="system"/>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -61,8 +59,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-tz-vUw">
                                                         <rect key="frame" x="0.0" y="22" width="292" height="18"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.north.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="glc-rd-P15">
-                                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="18" height="16.666666666666664"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="glc-rd-P15">
+                                                                <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="18" id="2qA-9t-wEe"/>
@@ -121,7 +119,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="203" height="35"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QdU-wZ-4c2">
-                                                        <rect key="frame" x="15" y="10" width="20" height="16"/>
+                                                        <rect key="frame" x="15" y="9.5" width="20" height="16.5"/>
                                                         <color key="tintColor" red="0.160687148" green="0.160687148" blue="0.160687148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="Jhx-rK-bXl"/>
@@ -134,7 +132,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VqD-Pz-mcE">
-                                                        <rect key="frame" x="118" y="8.3333333333333321" width="20" height="18.33333333333335"/>
+                                                        <rect key="frame" x="118" y="8.5" width="20" height="18.5"/>
                                                         <color key="tintColor" red="0.160687148" green="0.160687148" blue="0.160687148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="XKg-vs-VLq"/>
@@ -159,19 +157,13 @@
                                                 <rect key="frame" x="203" y="0.0" width="172" height="35"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-1q-RYW">
-                                                        <rect key="frame" x="57" y="5.9999999999999982" width="25" height="23.666666666666664"/>
+                                                        <rect key="frame" x="57" y="5.5" width="25" height="24"/>
                                                         <color key="tintColor" red="0.9759126306" green="0.46439343690000001" blue="0.080366663630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="waV-fl-1IH"/>
-                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ5-39-1kM">
                                                         <rect key="frame" x="87" y="5" width="77" height="25"/>
                                                         <color key="tintColor" red="0.14984589819999999" green="0.13471731540000001" blue="0.1681192517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Join ">
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                                        </buttonConfiguration>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -242,11 +234,10 @@
     <resources>
         <image name="abdullahme" width="720" height="1280"/>
         <image name="asad" width="960" height="1280"/>
-        <image name="building.columns.fill" catalog="system" width="128" height="112"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="location.north.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="lock.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="message" catalog="system" width="128" height="116"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

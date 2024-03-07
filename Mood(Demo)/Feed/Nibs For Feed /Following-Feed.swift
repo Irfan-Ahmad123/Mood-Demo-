@@ -9,17 +9,18 @@ import UIKit
 
 class FollowingView: UIView{
     
-    let myFollowig: [Following] = [
-        Following(imageFollowing: "aa", labelTitle: "Ali"),
-        Following(imageFollowing: "bb", labelTitle: "Raza"),
-        Following(imageFollowing: "cc", labelTitle: "Javed"),
-        Following(imageFollowing: "dd", labelTitle: "Subhan")
+    let myFollowig = [
+        Following(imageFollowing: "mee", labelTitle: "Irfan"),
+        Following(imageFollowing: "faizan", labelTitle: "Faizan"),
+        Following(imageFollowing: "asad", labelTitle: "Asad"),
+        Following(imageFollowing: "abdullahme", labelTitle: "Abdullah")
     ]
     
-    @IBOutlet weak var followingCollectionView: UICollectionView!
+    @IBOutlet var followingCollectionView: UICollectionView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,12 +35,13 @@ class FollowingView: UIView{
             view.frame = bounds
             addSubview(view)
         }
-       
+        followingCollectionView.delegate = self
         followingCollectionView.dataSource = self
         followingCollectionView.register(UINib(nibName: "FollowingCollectionCell", bundle: nil), forCellWithReuseIdentifier: "followingCell")
     }
 }
-extension FollowingView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FollowingView:
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 10
