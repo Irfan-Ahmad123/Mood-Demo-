@@ -7,8 +7,7 @@
 
 import UIKit
 
-struct Data
-{
+struct Data{
     var profileImage:   String
     var userName:       String
     var time:           String
@@ -16,10 +15,9 @@ struct Data
     var mainimg:        String
     var likes:          String
     var comments:       String
-
 }
+
 struct FriendsFeeds: Codable {
-    
     let current_page:    Int
     let data:            [Friend]
     let first_page_url:  String
@@ -32,7 +30,6 @@ struct FriendsFeeds: Codable {
     let prev_page_url:   String?
     let to:              Int
     let total:           Int
-
 }
 
 struct Friend: Codable {

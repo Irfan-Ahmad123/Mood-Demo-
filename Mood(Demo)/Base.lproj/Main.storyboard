@@ -375,7 +375,7 @@
             <objects>
                 <viewController id="9vR-KU-Ovo" customClass="SignUpVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlg-7M-5p0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ot-Ib-6fA">
@@ -396,11 +396,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dGz-Ke-ztW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY-MM-DD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dGz-Ke-ztW">
                                 <rect key="frame" x="20" y="259" width="374" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="signUpDate:" destination="9vR-KU-Ovo" eventType="editingDidEnd" id="iRc-ZN-US8"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoW-K7-AL4">
                                 <rect key="frame" x="20" y="318" width="66" height="17"/>
@@ -480,7 +483,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="EGa-Xg-qT4"/>
                     <connections>
-                        <outlet property="signUpAge" destination="dGz-Ke-ztW" id="iYR-A0-4Pl"/>
+                        <outlet property="signUpDate" destination="dGz-Ke-ztW" id="iYR-A0-4Pl"/>
                         <outlet property="signUpEmail" destination="5eY-Om-psE" id="je6-tc-n55"/>
                         <outlet property="signUpFullName" destination="gAo-3R-f1Q" id="ag0-zw-Rlx"/>
                         <outlet property="signUpNextBtn" destination="h4N-we-faG" id="iST-8F-zUH"/>
@@ -497,7 +500,7 @@
             <objects>
                 <viewController id="QEW-CX-OYg" customClass="SignUp2" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rvR-IB-cTa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Profile Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz1-Cv-uGM">
@@ -640,6 +643,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="gtH-sJ-W9A"/>
         <segue reference="zaM-2D-SR3"/>
     </inferredMetricsTieBreakers>
     <resources>
