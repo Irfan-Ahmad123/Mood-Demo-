@@ -92,7 +92,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         
     }
     
-    func showAlert(with message: String) {
+   private func showAlert(with message: String) {
            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
            alert.addAction(okAction)

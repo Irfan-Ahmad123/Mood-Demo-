@@ -43,7 +43,7 @@ class LogInVC: UIViewController {
     func signIN(){
         guard let checkUserEmail = logInUserEmail.text, !checkUserEmail.isEmpty,
               let checkUserPassword = logInUserPassword.text, !checkUserPassword.isEmpty else {
-            print("Please enter email and password.")
+            showAlert(with: "Please enter email and password.")
             return
         }
         
@@ -52,17 +52,18 @@ class LogInVC: UIViewController {
                 newSignup = decodedArray
               
                 if let matchedUser = newSignup.first(where: { $0.emailAddress == checkUserEmail && $0.password == checkUserPassword }) {
-                    print("Login successful for user: \(matchedUser.fullName)")
+                    showAlert(with: "Login successful for user: \(matchedUser.fullName)")
                     // Perform segue or other actions upon successful login here
                     performSegue(withIdentifier: "loggedIn", sender: self)
                 } else {
-                    print("Invalid email or password. Please try again.")
+                    showAlert(with: "Invalid email or password. Please try again.")
                 }
             }
         } else {
-            print("No user data found.")
+            showAlert(with: "No user data found.")
         }
     }
+
     
     private func configureUI(){
         
@@ -81,5 +82,12 @@ class LogInVC: UIViewController {
         logInUserPassword.isSecureTextEntry = true
         
     }
+    
+    private func showAlert(with message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
 }
 
