@@ -12,7 +12,6 @@ class DiscoverCell: UITableViewCell {
     @IBOutlet var userProfileImage: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var timeLabel: UILabel!
     @IBOutlet var userAddressLabel: UILabel!
     @IBOutlet var userEventName: UILabel!
     @IBOutlet var buttonTitleLabel: UIButton!
@@ -28,17 +27,20 @@ class DiscoverCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
-    func configureCell(with data : TabelData){
-        userProfileImage.image = UIImage(named: data.profileImage)
-        userNameLabel.text = data.userName
-        dateLabel.text = data.date
-        timeLabel.text = data.time
-        userAddressLabel.text = data.address
-        userEventName.text = data.event
-        buttonTitleLabel.titleLabel?.text = data.btnTitle
+    
+    func configureCell(with data: Discover) {
+        if let title = data.activity_title {
+            self.userNameLabel.text = title
+        }
+        if let address = data.activity_address {
+            self.userAddressLabel.text = address
+        }
+        if let time = data.created_at?.convertToDisplayFormat() {
+            self.dateLabel.text = time
+        }
     }
+    
     func configureUIElements(){
         iii.layer.cornerRadius = iii.frame.size.width/2
         profileMii.layer.cornerRadius = profileMii.frame.size.width/2

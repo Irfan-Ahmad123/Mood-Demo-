@@ -45,20 +45,20 @@ class FriendsView: UIView {
         friendsTabelView.register(UINib(nibName: "FriendsCell", bundle: nil), forCellReuseIdentifier: "friendCell")
     }
     func fetchData(){
-            NetworkManager.callingAPI{ [weak self] (data, error) in
-                guard let self = self else { return }
-                if let error = error {
-                    print("Error fetching data: \(error)")
-                    return
-                }
-                if let data = data {
-                    self.friendData = data
-                    DispatchQueue.main.async {
-                        self.friendsTabelView.reloadData()
-                    }
+        NetworkManager.callingAPI{ [weak self] (data, error) in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error fetching data: \(error)")
+                return
+            }
+            if let data = data {
+                self.friendData = data
+                DispatchQueue.main.async {
+                    self.friendsTabelView.reloadData()
                 }
             }
         }
+    }
 }
 extension FriendsView:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
