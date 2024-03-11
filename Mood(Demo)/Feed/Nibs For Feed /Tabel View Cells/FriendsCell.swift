@@ -21,15 +21,7 @@ class FriendsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        joinBtn.layer.cornerRadius = 10
-        joinBtn.layer.shadowRadius = 4
-        joinBtn.layer.borderColor = UIColor.black.cgColor
-        joinBtn.layer.borderWidth = 1
-        
-        lockPick.layer.cornerRadius = lockPick.frame.size.width/2
-        
-        friendProfilepic.layer.cornerRadius = friendProfilepic.frame.size.width/2
+        customizingUI()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,12 +39,13 @@ class FriendsCell: UITableViewCell {
         if let time = data.created_at?.convertToDisplayFormat(){
             self.friendTime.text = time
         }
-//        friendProfilepic.image = UIImage(named: data.profileImage)
-//        friendName.text = data.userName
-//        friendTime.text = data.time
-//        friendEvent.text = data.event
-//        friendMainImage.image = UIImage(named: data.mainimg)
-//        friendLike.text = data.likes
-//        friendComment.text = data.comments
+    }
+    private func customizingUI(){
+        joinBtn.layer.cornerRadius = 10
+        joinBtn.layer.shadowRadius = 4
+        joinBtn.layer.borderColor = UIColor.black.cgColor
+        joinBtn.layer.borderWidth = 1
+        lockPick.layer.cornerRadius = lockPick.frame.size.width/2
+        friendProfilepic.layer.cornerRadius = friendProfilepic.frame.size.width/2
     }
 }

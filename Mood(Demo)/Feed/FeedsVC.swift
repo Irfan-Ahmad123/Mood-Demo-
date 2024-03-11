@@ -21,7 +21,6 @@ class FeedsVC: UIViewController {
     @IBOutlet var followingBtn: UIButton!
     @IBOutlet var popularBtn: UIButton!
     
-    
     @IBAction func discoverBtn(_ sender: UIButton) {
         selectButton(sender, selectedView: discoverView)
     }
@@ -61,6 +60,7 @@ class FeedsVC: UIViewController {
     }
     
     private func configureUI(){
+        
         discoverView.isHidden = false
         friendView.isHidden = true
         
@@ -73,7 +73,6 @@ class FeedsVC: UIViewController {
         for button in mainBtns{
             button.layer.cornerRadius = 10
         }
-        
         selectButton(discoverBtn, selectedView: discoverView)
         
     }

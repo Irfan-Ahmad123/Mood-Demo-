@@ -14,7 +14,6 @@ class PopularView: UIView{
         Popular(imageProfile: "cc", title: "Cafe Opera", place: "Place", description: "Cafe Opera is popular with 200 Check ins", imagePost: "cc")
     ]
     
-    
     @IBOutlet weak var popularTaleViewCell: UITableView!
     //@IBOutlet var discoverTableView: UITableView!
     
@@ -35,11 +34,11 @@ class PopularView: UIView{
             view.frame = bounds
             addSubview(view)
         }
-       
         popularTaleViewCell.dataSource = self
         popularTaleViewCell.register(UINib(nibName: "PopularCell", bundle: nil), forCellReuseIdentifier: "popularCell")
     }
 }
+
 extension PopularView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myPopular.count
@@ -52,5 +51,4 @@ extension PopularView: UITableViewDataSource{
         cell.configure(data: x)
         return cell
     }
-    
 }

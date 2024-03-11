@@ -16,8 +16,6 @@ struct Popular {
 }
 
 class PopularCell: UITableViewCell {
-    
-    
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -25,7 +23,6 @@ class PopularCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var imgPost: UIImageView!
     @IBOutlet weak var btnJoin: UIButton!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +42,6 @@ class PopularCell: UITableViewCell {
         self.lblDescription.text = data.description
         self.imgPost.image = UIImage(named: data.imagePost)
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
