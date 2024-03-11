@@ -29,5 +29,4 @@ class FollowingCollectionCell: UICollectionViewCell {
         self.imgFollowing.image = UIImage(named: data.imageFollowing)
         self.lblTitle.text = data.labelTitle
     }
-
 }

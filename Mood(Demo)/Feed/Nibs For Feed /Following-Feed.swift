@@ -13,10 +13,10 @@ class FollowingView: UIView{
         Following(imageFollowing: "mee", labelTitle: "Irfan"),
         Following(imageFollowing: "faizan", labelTitle: "Faizan"),
         Following(imageFollowing: "asad", labelTitle: "Asad"),
-        Following(imageFollowing: "abdullahme", labelTitle: "Abdullah")
-    ]
+        Following(imageFollowing: "abdullahme", labelTitle: "Abdullah")]
     
     @IBOutlet var followingCollectionView: UICollectionView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

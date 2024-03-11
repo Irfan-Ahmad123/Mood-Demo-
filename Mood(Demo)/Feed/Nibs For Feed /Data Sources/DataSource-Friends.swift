@@ -36,7 +36,6 @@ struct FriendsFeeds: Codable {
 }
 
 struct Friend: Codable {
-    
     var activity_title: String?
     var activity_description: String?
     var activity_address: String?
