@@ -11,7 +11,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 //this is done for practice of git desktop 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController: UIViewController?
+
+        // Perform login request
+        NetworkManager.shared.loginUser(email: "username", password: "password") { token in
+            DispatchQueue.main.async {
+                if token != nil {
+                    // Token verification successful, navigate to logged in screen
+                    initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+                } else {
+                    // Token verification failed, navigate to login screen
+                    initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                }
+                
+                // Set the initial view controller
+                UIApplication.shared.windows.first?.rootViewController = initialViewController
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            }
+        }
+
         return true
     }
 
