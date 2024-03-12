@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct Login {
+    let token: String
+}
+
 class LogInVC: UIViewController {
     
     
@@ -48,6 +52,7 @@ class LogInVC: UIViewController {
             } else {
                 print("Login successful")
                 DispatchQueue.main.async {
+                    
                     self.performSegue(withIdentifier: "loggedIn", sender: self)
                 }
             }

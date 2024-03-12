@@ -11,7 +11,7 @@ class NetworkManager{
     
     static let shared = NetworkManager()
     
-    static func callingAPI(completion: @escaping(FriendsFeedModal?, Error?) -> Void){
+    func callingAPI(withToken token: String, completion: @escaping(FriendsFeedModal?, Error?) -> Void){
         guard let url = URL(string: FriendsFeedUrl) else {
             completion(nil, NSError(domain: "InvalidURL", code: 0, userInfo: nil))
             return
@@ -21,8 +21,8 @@ class NetworkManager{
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
             if let error = error {
                 completion(nil, error)
                 return
@@ -35,34 +35,70 @@ class NetworkManager{
             
             do {
                 let decoder = JSONDecoder()
-                let FriendFeedResponse = try decoder.decode(FriendsFeedModal.self, from: data)
-                completion(FriendFeedResponse, nil)
+                let friendFeedResponse = try decoder.decode(FriendsFeedModal.self, from: data)
+                completion(friendFeedResponse, nil)
             } catch {
                 completion(nil, error)
             }
         }.resume()
     }
     
-    static func callingAPIForDiscover(completion: @escaping(DiscoverModel?, Error?) -> Void){
+    
+//    static func callingAPI(completion: @escaping(FriendsFeedModal?, Error?) -> Void){
+//        guard let url = URL(string: FriendsFeedUrl) else {
+//            completion(nil, NSError(domain: "InvalidURL", code: 0, userInfo: nil))
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//
+//            if let error = error {
+//                completion(nil, error)
+//                return
+//            }
+//
+//            guard let data = data else {
+//                completion(nil, NSError(domain: "NoData", code: 0, userInfo: nil))
+//                return
+//            }
+//
+//            do {
+//                let decoder = JSONDecoder()
+//                let FriendFeedResponse = try decoder.decode(FriendsFeedModal.self, from: data)
+//                completion(FriendFeedResponse, nil)
+//            } catch {
+//                completion(nil, error)
+//            }
+//        }.resume()
+//    }
+    
+    
+    func callingAPIForDiscover(withToken token: String, completion: @escaping(DiscoverModel?, Error?) -> Void){
         guard let url = URL(string: Discover_url) else {
             completion(nil, NSError(domain: "InvalidURL", code: 0, userInfo: nil))
             return
         }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(tokenDiscover)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(nil, error)
                 return
             }
+            
             guard let data = data else {
                 completion(nil, NSError(domain: "NoData", code: 0, userInfo: nil))
                 return
             }
-            //            var stringData = String(data: data, encoding: .utf8)
-            //            print(stringData)
+            
             do {
                 let decoder = JSONDecoder()
                 let discoverResponse = try decoder.decode(DiscoverModel.self, from: data)
@@ -72,6 +108,38 @@ class NetworkManager{
             }
         }.resume()
     }
+    
+    
+    
+//    static func callingAPIForDiscover(completion: @escaping(DiscoverModel?, Error?) -> Void){
+//        guard let url = URL(string: Discover_url) else {
+//            completion(nil, NSError(domain: "InvalidURL", code: 0, userInfo: nil))
+//            return
+//        }
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("Bearer \(tokenDiscover)", forHTTPHeaderField: "Authorization")
+//        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            if let error = error {
+//                completion(nil, error)
+//                return
+//            }
+//            guard let data = data else {
+//                completion(nil, NSError(domain: "NoData", code: 0, userInfo: nil))
+//                return
+//            }
+//            //            var stringData = String(data: data, encoding: .utf8)
+//            //            print(stringData)
+//            do {
+//                let decoder = JSONDecoder()
+//                let discoverResponse = try decoder.decode(DiscoverModel.self, from: data)
+//                completion(discoverResponse, nil)
+//            } catch {
+//                completion(nil, error)
+//            }
+//        }.resume()
+//    }
     
     func registerUser(registerModel: userSignUpInfo, completion: @escaping (Error?) -> Void) {
             // Create URL from register_url string

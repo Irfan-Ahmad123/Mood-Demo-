@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkManager.shared.loginUser(email: "username", password: "password") { token in
             DispatchQueue.main.async {
                 if token != nil {
+                    print("Token for fetching from Login:", token)
                     // Token verification successful, navigate to logged in screen
                     initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
                 } else {

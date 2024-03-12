@@ -8,15 +8,15 @@ import UIKit
 
 class FriendsView: UIView {
     var friendData: FriendsFeedModal?
-    let data = [
-        Data(profileImage: "mee", userName: "Irfan Ahmad", time: "2 hour ago ", event: " Birthday ", mainimg: "mee", likes: "112", comments: "40"),
-        
-        Data(profileImage: "abdullahme", userName: "Abdullah", time: "5 hours ago", event: "Waleema", mainimg: "abdullahme", likes: "400", comments: "40"),
-        
-        Data(profileImage: "faizan", userName: "Faizan Ahmad", time: "20 hours ago", event: "Barat", mainimg: "faizan", likes: "800", comments: "9834"),
-        
-        Data(profileImage: "gullu", userName: "Gull Sher", time: "21 hours ago", event: "Basketball", mainimg: "gullu", likes: "2500", comments: "233")
-    ]
+//    let data = [
+//        Data(profileImage: "mee", userName: "Irfan Ahmad", time: "2 hour ago ", event: " Birthday ", mainimg: "mee", likes: "112", comments: "40"),
+//
+//        Data(profileImage: "abdullahme", userName: "Abdullah", time: "5 hours ago", event: "Waleema", mainimg: "abdullahme", likes: "400", comments: "40"),
+//
+//        Data(profileImage: "faizan", userName: "Faizan Ahmad", time: "20 hours ago", event: "Barat", mainimg: "faizan", likes: "800", comments: "9834"),
+//        
+//        Data(profileImage: "gullu", userName: "Gull Sher", time: "21 hours ago", event: "Basketball", mainimg: "gullu", likes: "2500", comments: "233")
+//    ]
     
     @IBOutlet var friendsTabelView: UITableView!
     
@@ -45,7 +45,12 @@ class FriendsView: UIView {
         friendsTabelView.register(UINib(nibName: "FriendsCell", bundle: nil), forCellReuseIdentifier: "friendCell")
     }
     func fetchData(){
-        NetworkManager.callingAPI{ [weak self] (data, error) in
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            print("No token found")
+            return
+        }
+        print("Token for fetching friend feed:", token)
+        NetworkManager.shared.callingAPI(withToken: token) { [weak self] (data, error) in
             guard let self = self else { return }
             if let error = error {
                 print("Error fetching data: \(error)")
