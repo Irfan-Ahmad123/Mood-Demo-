@@ -112,12 +112,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="1oa-1d-64T">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" image="ellipsis" catalog="system" id="Bje-27-N0y">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="logOut:" destination="StR-kX-p9a" id="lSM-Cf-lee"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="Group 1161" id="Y7N-yh-tnx">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </barButtonItem>
                             <barButtonItem image="Group 1320" id="oIZ-Ur-VfR">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -135,6 +141,7 @@
                         <outletCollection property="mainBtns" destination="p6N-Cg-PVH" collectionClass="NSMutableArray" id="6pC-8Z-ur4"/>
                         <outletCollection property="mainBtns" destination="Gcs-TH-M7V" collectionClass="NSMutableArray" id="Bba-Ok-8Vj"/>
                         <outletCollection property="mainBtns" destination="olt-1Q-3yh" collectionClass="NSMutableArray" id="ZVN-uX-BCD"/>
+                        <segue destination="b40-hP-djq" kind="show" identifier="loggedOut" id="mHt-mX-izx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBl-s7-ok5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -233,7 +240,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="b40-hP-djq" customClass="LogInVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udS-hR-6ex">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogInPic" translatesAutoresizingMaskIntoConstraints="NO" id="x4O-Ag-eWk">
@@ -643,8 +650,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MIx-WB-AFm"/>
-        <segue reference="zaM-2D-SR3"/>
+        <segue reference="mHt-mX-izx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 1161" width="28" height="20"/>
@@ -655,6 +661,7 @@
         <image name="LogoPic" width="138" height="111"/>
         <image name="More" width="25" height="21"/>
         <image name="Path 4278" width="30" height="24"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
@@ -667,8 +674,14 @@
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

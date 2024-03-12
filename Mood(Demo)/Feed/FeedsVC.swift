@@ -9,6 +9,11 @@ import UIKit
 
 class FeedsVC: UIViewController {
     
+
+    @IBAction func logOut(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.removeObject(forKey: "userToken")
+        performSegue(withIdentifier: "loggedOut", sender: nil)
+    }
     @IBOutlet var discoverView: DiscoverView!
     @IBOutlet var friendView: FriendsView!
     @IBOutlet weak var popularView: PopularView!
