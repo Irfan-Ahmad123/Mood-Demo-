@@ -9,15 +9,15 @@ import UIKit
 
 class LogInVC: UIViewController {
     
-    struct userSignUpInfo : Codable {
-        var fullName: String
-        var age: String
-        var bio: String?
-        var emailAddress: String
-        var password : String
-    }
+//    struct userSignUpInfo : Codable {
+//        var fullName: String
+//        var age: String
+//        var bio: String?
+//        var emailAddress: String
+//        var password : String
+//    }
     
-    var newSignup : [userSignUpInfo] = []
+    //var newSignup : [userSignUpInfo] = []
     
     @IBOutlet var logInUserEmail: UITextField!
     @IBOutlet var logInUserPassword: UITextField!
@@ -41,30 +41,25 @@ class LogInVC: UIViewController {
     }
     
     func signIN(){
-        guard let checkUserEmail = logInUserEmail.text, !checkUserEmail.isEmpty,
-              let checkUserPassword = logInUserPassword.text, !checkUserPassword.isEmpty else {
-            showAlert(with: "Please enter email and password.")
+        let networkManager = NetworkManager()
+        guard let email = logInUserEmail.text, !email.isEmpty,
+              let password = logInUserPassword.text, !password.isEmpty else {
+            print("Please enter email and password.")
             return
         }
         
-        if let encodedData = UserDefaults.standard.data(forKey: "newInfo") {
-            if let decodedArray = try? JSONDecoder().decode([userSignUpInfo].self, from: encodedData) {
-                newSignup = decodedArray
-              
-                if let matchedUser = newSignup.first(where: { $0.emailAddress == checkUserEmail && $0.password == checkUserPassword }) {
-                    showAlert(with: "Login successful for user: \(matchedUser.fullName)")
-                    // Perform segue or other actions upon successful login here
-                    performSegue(withIdentifier: "loggedIn", sender: self)
-                } else {
-                    showAlert(with: "Invalid email or password. Please try again.")
+        networkManager.loginUser(email: email, password: password) { error in
+            if let error = error {
+                print("Error occurred: \(error.localizedDescription)")
+            } else {
+                print("Login successful")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "loggedIn", sender: self)
                 }
             }
-        } else {
-            showAlert(with: "No user data found.")
         }
     }
 
-    
     private func configureUI(){
         
         singUpBtnTapped.layer.cornerRadius = 20

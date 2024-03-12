@@ -7,17 +7,18 @@
 
 import UIKit
 
-struct userSignUpInfo : Codable {
-    var fullName: String
-    var age: String
+struct userSignUpInfo : Encodable {
+    
+    var full_name: String
+    var date_of_birth: String
+    var email: String
+    var password: String
     var bio: String?
-    var emailAddress: String
-    var password : String
 }
 
 class SignUpVC: UIViewController,UITextFieldDelegate {
     
-    var newSignup : [userSignUpInfo] = []
+    //var newSignup : [userSignUpInfo] = []
     var bioText:String?
     
     @IBOutlet var signUpFullName: UITextField!
@@ -74,6 +75,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         }
     }
     func saveDataOfUser(){
+        let networkManager = NetworkManager()
         guard let fullName = signUpFullName.text,
                  let age = signUpDate.text,
                  let emailAddress = signUpEmail.text,
@@ -81,15 +83,15 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
            else {
                return
            }
-           // If both email and password are valid, proceed with sign-up
-           let newUser = userSignUpInfo(fullName: fullName, age: age, bio: bioText, emailAddress: emailAddress, password: password)
-           newSignup.append(newUser)
-
-           if let encodedData = try? JSONEncoder().encode(newSignup) {
-               UserDefaults.standard.set(encodedData, forKey: "newInfo")
-           }
-
         
+        let newUser = userSignUpInfo(full_name: fullName, date_of_birth: age, email: emailAddress, password: password, bio: bioText)
+        networkManager.registerUser(registerModel: newUser) { error in
+            if let error = error {
+                print("Error occurred: \(error.localizedDescription)")
+            } else {
+                print("Registration successful")
+            }
+        }
     }
     
    private func showAlert(with message: String) {
