@@ -12,7 +12,7 @@
         <!--Feed-->
         <scene sceneID="UTt-Ck-bhL">
             <objects>
-                <viewController id="StR-kX-p9a" customClass="FeedsVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="StR-kX-p9a" customClass="FeedsVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9R0-gW-dxk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,9 +231,9 @@
         <!--Log InVC-->
         <scene sceneID="w1V-2u-Qdy">
             <objects>
-                <viewController id="b40-hP-djq" customClass="LogInVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="b40-hP-djq" customClass="LogInVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udS-hR-6ex">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogInPic" translatesAutoresizingMaskIntoConstraints="NO" id="x4O-Ag-eWk">
@@ -375,7 +375,7 @@
             <objects>
                 <viewController id="9vR-KU-Ovo" customClass="SignUpVC" customModule="Mood_Demo_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlg-7M-5p0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ot-Ib-6fA">
@@ -643,7 +643,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gtH-sJ-W9A"/>
+        <segue reference="MIx-WB-AFm"/>
         <segue reference="zaM-2D-SR3"/>
     </inferredMetricsTieBreakers>
     <resources>

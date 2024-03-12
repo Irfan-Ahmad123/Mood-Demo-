@@ -9,13 +9,6 @@ import UIKit
 
 class LogInVC: UIViewController {
     
-//    struct userSignUpInfo : Codable {
-//        var fullName: String
-//        var age: String
-//        var bio: String?
-//        var emailAddress: String
-//        var password : String
-//    }
     
     //var newSignup : [userSignUpInfo] = []
     
@@ -34,6 +27,20 @@ class LogInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        // Example usage: Logging in
+        NetworkManager.shared.loginUser(email: "username", password: "password") { token in
+            if token != nil {
+                // Token verification successful, perform segue to logged in screen
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "loggedIn", sender: self)
+                }
+            } else {
+                // Token verification failed, perform segue back to login screen
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "backToLogIn", sender: self)
+                }
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

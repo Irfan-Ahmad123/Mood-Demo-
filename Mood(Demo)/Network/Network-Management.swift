@@ -9,6 +9,8 @@ import Foundation
 
 class NetworkManager{
     
+    static let shared = NetworkManager()
+    
     static func callingAPI(completion: @escaping(FriendsFeedModal?, Error?) -> Void){
         guard let url = URL(string: FriendsFeedUrl) else {
             completion(nil, NSError(domain: "InvalidURL", code: 0, userInfo: nil))
@@ -64,13 +66,6 @@ class NetworkManager{
             do {
                 let decoder = JSONDecoder()
                 let discoverResponse = try decoder.decode(DiscoverModel.self, from: data)
-                //                let firstDiscoverId = discoverResponse.discoverFeeds.data.first?.id
-                //                let firstDiscoverTitle = discoverResponse.discoverFeeds.data.first?.activity_title
-                //                let firstDiscoverAddress = discoverResponse.discoverFeeds.data.first?.activity_address
-                //                print("First Discover ID: \(firstDiscoverId)")
-                //                print("First Discover ID: \(firstDiscoverTitle)")
-                //                print("First Discover ID: \(firstDiscoverAddress)")
-                
                 completion(discoverResponse, nil)
             } catch {
                 completion(nil, error)
@@ -124,6 +119,8 @@ class NetworkManager{
         // Start URLSessionDataTask
         task.resume()
     }
+   
+
     func loginUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
         guard let url = URL(string: login_url) else {
             completion(APIError.invalidURL)
@@ -155,18 +152,29 @@ class NetworkManager{
                 return
             }
             
-            completion(nil)
+            // Check if we received a token in the response
+            if let data = data,
+               let json = try? JSONSerialization.jsonObject(with: data, options: []),
+               let token = (json as? [String: Any])?["token"] as? String {
+                // Store the token in UserDefaults
+                UserDefaults.standard.set(token, forKey: "userToken")
+            } else {
+                // Handle error if token is not received in the response
+                completion(APIError.tokenNotFound)
+                return
+            }
+            
+            completion(nil) // Login successful
         }
         
         task.resume()
     }
-
 }
-
     // Define custom APIError enum
 enum APIError: Error {
     case invalidURL
     case encodingFailed
     case invalidResponse
+    case tokenNotFound
 }
 
