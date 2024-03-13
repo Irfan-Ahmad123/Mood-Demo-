@@ -53,9 +53,19 @@ class LogInVC: UIViewController {
                 print("Login successful")
                 DispatchQueue.main.async {
                     
-                    self.performSegue(withIdentifier: "loggedIn", sender: self)
+                    self.checkTokenAndNavigate()
                 }
             }
+        }
+    }
+    
+    private func checkTokenAndNavigate() {
+        if let token = UserDefaults.standard.string(forKey: "userToken") {
+            print("Token for fetching from Login:", token)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            UIApplication.shared.windows.first?.rootViewController = viewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
         }
     }
 

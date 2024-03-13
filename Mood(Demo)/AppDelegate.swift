@@ -15,24 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var initialViewController: UIViewController?
 
         // Perform login request
-        NetworkManager.shared.loginUser(email: "username", password: "password") { token in
-            DispatchQueue.main.async {
-                if token != nil {
-                    print("Token for fetching from Login:", token)
-                    // Token verification successful, navigate to logged in screen
-                    initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-                } else {
-                    // Token verification failed, navigate to login screen
-                    initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-                }
-                
-                // Set the initial view controller
-                UIApplication.shared.windows.first?.rootViewController = initialViewController
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
+        if let token = UserDefaults.standard.string(forKey: "userToken") {
+                print("Token for fetching from UserDefaults:", token)
+                //performSegue(withIdentifier: "MainViewController", sender: nil)
+                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            } else {
+                //performSegue(withIdentifier: "LoginViewController", sender: nil)
+               initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             }
-        }
+            
+            UIApplication.shared.windows.first?.rootViewController = initialViewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
 
-        return true
+            return true
     }
 
     // MARK: UISceneSession Lifecycle

@@ -11,7 +11,8 @@ class FeedsVC: UIViewController {
     
 
     @IBAction func logOut(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.removeObject(forKey: "userToken")
+        let destroyUserToken = UserDefaults.standard.removeObject(forKey: "userToken")
+        print("Token Destroy from UserDefaults:", destroyUserToken)
         performSegue(withIdentifier: "loggedOut", sender: nil)
     }
     @IBOutlet var discoverView: DiscoverView!
