@@ -39,6 +39,29 @@ class DiscoverCell: UITableViewCell {
         if let time = data.created_at?.convertToDisplayFormat() {
             self.dateLabel.text = time
         }
+//        if let imageURLString = data.activity_picture {
+//            let fullImageURLString: String
+//            if !imageURLString.hasPrefix("http://") && !imageURLString.hasPrefix("https://") {
+//                fullImageURLString = "http://" + imageURLString
+//            } else {
+//                fullImageURLString = imageURLString
+//            }
+//            if let imageURL = URL(string: fullImageURLString) {
+//                URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+//                    if let error = error {
+//                        print("Error fetching image:", error)
+//                        return
+//                    }
+//                    guard let imageData = data else {
+//                        print("No image data received")
+//                        return
+//                    }
+//                    DispatchQueue.main.async {
+//                        self.userProfileImage.image = UIImage(data: imageData)
+//                    }
+//                }.resume()
+//            }
+//        }
     }
     
     func configureUIElements(){

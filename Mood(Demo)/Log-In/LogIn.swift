@@ -13,9 +13,7 @@ struct Login {
 
 class LogInVC: UIViewController {
     
-    
-    //var newSignup : [userSignUpInfo] = []
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var logInUserEmail: UITextField!
     @IBOutlet var logInUserPassword: UITextField!
     @IBOutlet var signInBtnTapped: UIButton!
@@ -39,16 +37,25 @@ class LogInVC: UIViewController {
     }
     
     func signIN(){
+        activityIndicator.startAnimating()
         let networkManager = NetworkManager()
         guard let email = logInUserEmail.text, !email.isEmpty,
               let password = logInUserPassword.text, !password.isEmpty else {
-            print("Please enter email and password.")
+            showAlert(with: "Please enter email and password.")
+            activityIndicator.stopAnimating()
+            
             return
         }
         
         networkManager.loginUser(email: email, password: password) { error in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
             if let error = error {
-                print("Error occurred: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(with: "Invalid Email or Password. Please enter valid credentials")
+                    print("Error thhe occurred: \(error.localizedDescription)")
+                }
             } else {
                 print("Login successful")
                 DispatchQueue.main.async {

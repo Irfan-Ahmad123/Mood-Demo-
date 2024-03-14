@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            var initialViewController: UIViewController?
 
            if let token = UserDefaults.standard.string(forKey: "userToken") {
-               print("Token for fetching from UserDefaults:", token)
+               print("Token for fetching from scene UserDefaults:", token)
                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
            } else {
                initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")

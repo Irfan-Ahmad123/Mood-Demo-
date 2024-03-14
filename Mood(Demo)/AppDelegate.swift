@@ -11,21 +11,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 //this is done for practice of git desktop 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController: UIViewController?
-
-        // Perform login request
-        if let token = UserDefaults.standard.string(forKey: "userToken") {
-                print("Token for fetching from UserDefaults:", token)
-                //performSegue(withIdentifier: "MainViewController", sender: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-            } else {
-                //performSegue(withIdentifier: "LoginViewController", sender: nil)
-               initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            }
-            
-            UIApplication.shared.windows.first?.rootViewController = initialViewController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        var initialViewController: UIViewController?
+//
+//        // Perform login request
+//        if let token = UserDefaults.standard.string(forKey: "userToken") {
+//                print("Token for fetching from app UserDefaults:", token)
+//                //performSegue(withIdentifier: "MainViewController", sender: nil)
+//                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+//            } else {
+//                //performSegue(withIdentifier: "LoginViewController", sender: nil)
+//               initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//            }
+//
+//            UIApplication.shared.windows.first?.rootViewController = initialViewController
+//            UIApplication.shared.windows.first?.makeKeyAndVisible()
 
             return true
     }
