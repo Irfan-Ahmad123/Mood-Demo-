@@ -29,39 +29,29 @@ class DiscoverCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+//        userProfileImage.image = nil
+    }
+    
     func configureCell(with data: Discover) {
-        if let title = data.activity_title {
+        if let title = data.activityTitle {
             self.userNameLabel.text = title
         }
-        if let address = data.activity_address {
+        if let address = data.activityAddress {
             self.userAddressLabel.text = address
         }
-        if let time = data.created_at?.convertToDisplayFormat() {
+        if let time = data.createdAt?.convertToDisplayFormat() {
             self.dateLabel.text = time
         }
-//        if let imageURLString = data.activity_picture {
-//            let fullImageURLString: String
-//            if !imageURLString.hasPrefix("http://") && !imageURLString.hasPrefix("https://") {
-//                fullImageURLString = "http://" + imageURLString
-//            } else {
-//                fullImageURLString = imageURLString
-//            }
-//            if let imageURL = URL(string: fullImageURLString) {
-//                URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-//                    if let error = error {
-//                        print("Error fetching image:", error)
-//                        return
-//                    }
-//                    guard let imageData = data else {
-//                        print("No image data received")
-//                        return
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.userProfileImage.image = UIImage(data: imageData)
-//                    }
-//                }.resume()
-//            }
-//        }
+        if let imageURLString = data.activityPicture {
+            NetworkManager.shared.fetchImage(from: imageURLString) {[weak self] image in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.userProfileImage.image = image
+                }
+            }
+        }
     }
     
     func configureUIElements(){

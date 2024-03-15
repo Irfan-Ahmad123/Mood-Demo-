@@ -20,20 +20,17 @@ class DiscoverView: UIView, UITableViewDataSource {
     }
     
     private func commonInit() {
-        
         let nib = UINib(nibName: "Discover", bundle: nil)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             view.frame = bounds
             addSubview(view)
         }
-        
         discoverTableView.dataSource = self
-        
         discoverTableView.register(UINib(nibName: "DiscoverCell", bundle: nil), forCellReuseIdentifier: "discoverCell")
     }
     
     func fetchDataForDiscover(){
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+        guard let token = MoodStorage.token else {
             print("No token found")
             return
         }
@@ -57,14 +54,14 @@ class DiscoverView: UIView, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return discoverData?.discoverFeeds.data.count ?? 0
-        //return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "discoverCell", for: indexPath) as! DiscoverCell
-        if  let dat = discoverData?.discoverFeeds.data[indexPath.row]
-         {cell.configureCell(with: dat)}
-         return cell
+        if  let dat = discoverData?.discoverFeeds.data[indexPath.row] {
+            cell.configureCell(with: dat)
+        }
+        return cell
     }
 }

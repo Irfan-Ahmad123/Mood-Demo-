@@ -9,16 +9,23 @@ import UIKit
 
 struct userSignUpInfo : Encodable {
     
-    var full_name: String
-    var date_of_birth: String
+    var fullName: String
+    var dateOfBirth: String
     var email: String
     var password: String
     var bio: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case fullName = "full_name"
+        case dateOfBirth = "date_of_birth"
+        case email = "email"
+        case password = "password"
+        case bio = "bio"
+    }
 }
 
 class SignUpVC: UIViewController,UITextFieldDelegate {
     
-    //var newSignup : [userSignUpInfo] = []
     var bioText:String?
     
     @IBOutlet var signUpFullName: UITextField!
@@ -26,25 +33,6 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBOutlet var signUpEmail: UITextField!
     @IBOutlet var signUpPassword: UITextField!
     @IBOutlet var signUpNextBtn: UIButton!
-    @IBAction func signUpDate(_ sender: Any) {
-        guard let textField = sender as? UITextField, let text = textField.text else {
-                return
-            }
-
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            if let date = dateFormatter.date(from: text), dateFormatter.string(from: date) == text {
-                
-            } else {
-                showAlert(with: "Please enter a valid date in the format YYYY-MM-DD")
-            }    }
-    @IBAction func signUpNextBtnTapped(_ sender: UIButton) {
-        guard let password = signUpPassword.text, isPasswordValid(password) else {
-                        showAlert(with: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.")
-                        return
-                    }
-        performSegue(withIdentifier: "toSignUp1", sender: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,33 +47,53 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         navigationController?.isNavigationBarHidden = true
     }
     
+    @IBAction func signUpDate(_ sender: Any) {
+        guard let textField = sender as? UITextField, let text = textField.text else {
+            return
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.date(from: text), dateFormatter.string(from: date) == text {
+            
+        } else {
+            showAlert(with: "Please enter a valid date in the format YYYY-MM-DD")
+        }
+    }
+    
+    @IBAction func signUpNextBtnTapped(_ sender: UIButton) {
+        guard let password = signUpPassword.text, isPasswordValid(password) else {
+            showAlert(with: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.")
+            return
+        }
+        performSegue(withIdentifier: "toSignUp1", sender: nil)
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == signUpEmail {
-            // Validate email format
             guard let email = textField.text, validateEmail(email) else {
                 showAlert(with: "Please enter a valid email address.")
                 return
             }
         }else if textField == signUpFullName {
-            // Validate username
             guard let username = textField.text, !username.isEmpty else {
                 showAlert(with: "Username cannot be empty.")
                 return
             }
         }
     }
+    
     func saveDataOfUser(){
-        let networkManager = NetworkManager()
         guard let fullName = signUpFullName.text,
-                 let age = signUpDate.text,
-                 let emailAddress = signUpEmail.text,
-                 let password = signUpPassword.text
-           else {
-               return
-           }
-        
-        let newUser = userSignUpInfo(full_name: fullName, date_of_birth: age, email: emailAddress, password: password, bio: bioText)
-        networkManager.registerUser(registerModel: newUser) { error in
+              let age = signUpDate.text,
+              let emailAddress = signUpEmail.text,
+              let password = signUpPassword.text
+        else {
+            return
+        }
+        let newUser = userSignUpInfo(fullName: fullName, dateOfBirth: age, email: emailAddress, password: password, bio: bioText)
+        NetworkManager.shared.registerUser(registerModel: newUser) { [weak self] error in
+            guard self != nil else { return }
             if let error = error {
                 print("Error occurred: \(error.localizedDescription)")
             } else {
@@ -94,14 +102,14 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         }
     }
     
-   private func showAlert(with message: String) {
-           let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-           let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-           alert.addAction(okAction)
-           present(alert, animated: true, completion: nil)
-       }
+    private func showAlert(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
-     func datePickerValueChanged(_ sender: UIDatePicker) {
+    func datePickerValueChanged(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let selectedDate = dateFormatter.string(from: sender.date)
@@ -119,13 +127,13 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           if textField == signUpPassword {
-               textField.resignFirstResponder()
-               signUpNextBtnTapped(signUpNextBtn)
-               return true
-           }
-           return false
-       }
+        if textField == signUpPassword {
+            textField.resignFirstResponder()
+            signUpNextBtnTapped(signUpNextBtn)
+            return true
+        }
+        return false
+    }
     
     func configureUI(){
         

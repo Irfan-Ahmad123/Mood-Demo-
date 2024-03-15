@@ -15,7 +15,6 @@ class PopularView: UIView{
     ]
     
     @IBOutlet weak var popularTaleViewCell: UITableView!
-    //@IBOutlet var discoverTableView: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +27,6 @@ class PopularView: UIView{
     }
     
     private func commonInit() {
-        
         let nib = UINib(nibName: "Popular", bundle: nil)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             view.frame = bounds
@@ -39,6 +37,8 @@ class PopularView: UIView{
     }
 }
 
+// MARK: - UITableViewDataSource Methods
+
 extension PopularView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myPopular.count
@@ -46,7 +46,6 @@ extension PopularView: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "popularCell", for: indexPath) as! PopularCell
-        //tableViewPopular.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         let x = myPopular[indexPath.row]
         cell.configure(data: x)
         return cell

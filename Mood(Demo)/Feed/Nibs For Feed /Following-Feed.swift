@@ -40,6 +40,9 @@ class FollowingView: UIView{
         followingCollectionView.register(UINib(nibName: "FollowingCollectionCell", bundle: nil), forCellWithReuseIdentifier: "followingCell")
     }
 }
+
+// MARK: - UICollectionViewDataSource Methods
+
 extension FollowingView:
     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     

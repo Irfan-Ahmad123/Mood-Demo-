@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            let storyboard = UIStoryboard(name: "Main", bundle: nil)
            var initialViewController: UIViewController?
 
-           if let token = UserDefaults.standard.string(forKey: "userToken") {
+           if let token = MoodStorage.token {
                print("Token for fetching from scene UserDefaults:", token)
                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
            } else {

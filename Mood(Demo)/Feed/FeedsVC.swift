@@ -11,7 +11,7 @@ class FeedsVC: UIViewController {
     
 
     @IBAction func logOut(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.removeObject(forKey: "userToken")
+        MoodStorage.token = nil
         performSegue(withIdentifier: "loggedOut", sender: nil)
     }
     @IBOutlet var discoverView: DiscoverView!

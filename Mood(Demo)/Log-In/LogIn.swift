@@ -18,6 +18,17 @@ class LogInVC: UIViewController {
     @IBOutlet var logInUserPassword: UITextField!
     @IBOutlet var signInBtnTapped: UIButton!
     @IBOutlet var singUpBtnTapped: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func signInBtnTapped(_ sender: Any) {
         signIN()
     }
@@ -26,19 +37,8 @@ class LogInVC: UIViewController {
         performSegue(withIdentifier: "toSignUp", sender: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-    
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     func signIN(){
         activityIndicator.startAnimating()
-        let networkManager = NetworkManager()
         guard let email = logInUserEmail.text, !email.isEmpty,
               let password = logInUserPassword.text, !password.isEmpty else {
             showAlert(with: "Please enter email and password.")
@@ -47,7 +47,8 @@ class LogInVC: UIViewController {
             return
         }
         
-        networkManager.loginUser(email: email, password: password) { error in
+        NetworkManager.shared.loginUser(email: email, password: password) { [weak self] error in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
             }
@@ -67,7 +68,7 @@ class LogInVC: UIViewController {
     }
     
     private func checkTokenAndNavigate() {
-        if let token = UserDefaults.standard.string(forKey: "userToken") {
+        if let token = MoodStorage.token {
             print("Token for fetching from Login:", token)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
@@ -76,7 +77,7 @@ class LogInVC: UIViewController {
         }
     }
 
-    private func configureUI(){
+    private func configureUI() {
         
         singUpBtnTapped.layer.cornerRadius = 20
         singUpBtnTapped.layer.shadowColor = UIColor.black.cgColor
@@ -95,10 +96,9 @@ class LogInVC: UIViewController {
     }
     
     private func showAlert(with message: String) {
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
-

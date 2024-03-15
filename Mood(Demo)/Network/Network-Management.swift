@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager{
     
@@ -137,7 +138,7 @@ class NetworkManager{
             if let data = data,
                let json = try? JSONSerialization.jsonObject(with: data, options: []),
                let token = (json as? [String: Any])?["token"] as? String {
-                UserDefaults.standard.set(token, forKey: "userToken")
+                MoodStorage.token = token
             } else {
                 completion(APIError.tokenNotFound)
                 return
@@ -145,6 +146,33 @@ class NetworkManager{
             completion(nil)
         }
         task.resume()
+    }
+    
+    func fetchImage(from urlString: String, completion: @escaping(UIImage?) ->  Void ){
+        let fullImageURLString = "http://52.30.4.1\(urlString)"
+        guard let imageURL = URL(string: fullImageURLString) else {
+            print(APIError.invalidURL)
+            completion(nil)
+            return
+        }
+        URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+            if let error = error {
+                print("Error fetching image:", error)
+                completion(nil)
+                return
+            }
+            guard let imageData = data else {
+                print("No image data received")
+                completion(nil)
+                return
+            }
+            if let image = UIImage(data: imageData) {
+                    completion(image)
+                } else {
+                    print("Failed to convert data to image")
+                    completion(nil)
+                }
+        }.resume()
     }
 }
 

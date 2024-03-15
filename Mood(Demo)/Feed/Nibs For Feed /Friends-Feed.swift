@@ -7,17 +7,8 @@
 import UIKit
 
 class FriendsView: UIView {
-    var friendData: FriendsFeedModal?
-//    let data = [
-//        Data(profileImage: "mee", userName: "Irfan Ahmad", time: "2 hour ago ", event: " Birthday ", mainimg: "mee", likes: "112", comments: "40"),
-//
-//        Data(profileImage: "abdullahme", userName: "Abdullah", time: "5 hours ago", event: "Waleema", mainimg: "abdullahme", likes: "400", comments: "40"),
-//
-//        Data(profileImage: "faizan", userName: "Faizan Ahmad", time: "20 hours ago", event: "Barat", mainimg: "faizan", likes: "800", comments: "9834"),
-//        
-//        Data(profileImage: "gullu", userName: "Gull Sher", time: "21 hours ago", event: "Basketball", mainimg: "gullu", likes: "2500", comments: "233")
-//    ]
     
+    var friendData: FriendsFeedModal?
     @IBOutlet var friendsTabelView: UITableView!
     
     override init(frame: CGRect) {
@@ -39,13 +30,11 @@ class FriendsView: UIView {
             view.frame = bounds
             addSubview(view)
         }
-        
         friendsTabelView.dataSource = self
-
         friendsTabelView.register(UINib(nibName: "FriendsCell", bundle: nil), forCellReuseIdentifier: "friendCell")
     }
     func fetchData(){
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+        guard let token = MoodStorage.token else {
             print("No token found")
             return
         }
@@ -65,17 +54,18 @@ class FriendsView: UIView {
         }
     }
 }
+
+// MARK: - UITableViewDataSource Methods
+
 extension FriendsView:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendData?.friendsfeed.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsCell
        if  let dat = friendData?.friendsfeed.data[indexPath.row]
         {cell.configureCell(with: dat)}
         return cell
-    
     }
 }

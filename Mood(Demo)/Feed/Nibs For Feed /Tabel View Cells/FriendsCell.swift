@@ -30,17 +30,18 @@ class FriendsCell: UITableViewCell {
     }
     
     func configureCell(with data : Friend){
-        if let address = data.activity_address{
+        if let address = data.activityAddress{
             self.friendEvent.text = address
         }
-        if let name = data.activity_title{
+        if let name = data.activityTitle{
             self.friendName.text = name
         }
-        if let time = data.created_at?.convertToDisplayFormat(){
+        if let time = data.createdAt?.convertToDisplayFormat(){
             self.friendTime.text = time
         }
     }
-    private func customizingUI(){
+    
+    private func customizingUI() {
         joinBtn.layer.cornerRadius = 10
         joinBtn.layer.shadowRadius = 4
         joinBtn.layer.borderColor = UIColor.black.cgColor
